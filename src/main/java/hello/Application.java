@@ -1,6 +1,7 @@
 package hello;
 
 import java.util.Arrays;
+import java.util.Map;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,13 +27,11 @@ public class Application {
             for (String beanName : beanNames) {
                 System.out.println(beanName);
             }
-            
-            System.out.println("Environment Variables");
-            System.out.println("---------------------");
-            String[] environmentVariables = System.getProperties().keySet().toArray(new String[0]);
-            Arrays.sort(environmentVariables);
-            for (String variable : environmentVariables) {
-            	System.out.println(variable + " : " + System.getProperty(variable));            	
+
+
+            Map<String, String> env = System.getenv();
+            for (String envName : env.keySet()) {
+                System.out.format("%s=%s%n", envName, env.get(envName));
             }
         };
     }
