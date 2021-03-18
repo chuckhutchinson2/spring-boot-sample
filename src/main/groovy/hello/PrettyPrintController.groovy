@@ -10,7 +10,7 @@ import groovy.json.JsonOutput
 
 @RestController
 public class PrettyPrintController {
-	@RequestMapping(value = "/print", method=RequestMethod.POST)
+	@RequestMapping(value = "/print", method=RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody String print(@RequestBody String data) {
 		return JsonOutput.prettyPrint(data)
 	}
