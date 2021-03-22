@@ -70,7 +70,7 @@ public class RequestResponseLoggingFilter implements Filter {
                 System.out.println(logMessage.toString());
                 log.debug(logMessage.toString());
             } catch (Throwable t) {
-                logMessage.append(" [RESPONSE Status:")
+                logMessage.append(" [Exception RESPONSE Status:")
 //                    .append(bufferedResponse.getContent()).append("]");
                         .append(bufferedResponse.getStatus());
                 System.out.println(logMessage.toString());
